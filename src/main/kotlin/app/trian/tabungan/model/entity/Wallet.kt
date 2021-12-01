@@ -1,6 +1,8 @@
 package app.trian.tabungan.model.entity
 
 import com.fasterxml.jackson.annotation.JsonIgnore
+import org.hibernate.annotations.Fetch
+import org.hibernate.annotations.FetchMode
 import javax.persistence.*
 
 @Entity
@@ -15,15 +17,23 @@ data class Wallet(
     val id:Long=0,
 
     @OneToMany(
-        mappedBy = "id_member",
-        fetch = FetchType.EAGER
+        mappedBy = "idMember",
+        fetch = FetchType.EAGER,
+        cascade = [CascadeType.ALL]
+    )
+    @Fetch(
+        value = FetchMode.SUBSELECT
     )
     @JsonIgnore
     var members:List<Member> = emptyList(),
 
     @OneToMany(
-        mappedBy = "id_saving",
-        fetch = FetchType.EAGER
+        mappedBy = "idSaving",
+        fetch = FetchType.EAGER,
+        cascade = [CascadeType.ALL]
+    )
+    @Fetch(
+        value = FetchMode.SUBSELECT
     )
     @JsonIgnore
     val savings:List<Saving> = emptyList(),

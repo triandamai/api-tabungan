@@ -17,7 +17,7 @@ class AuthController {
             "/login"
         ]
     )
-    fun Login():String{
+    fun login():String{
         return  "hahah"
     }
 }

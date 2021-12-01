@@ -14,11 +14,11 @@ data class Member(
     val idMember:Long=0,
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_wallet")
+    @JoinColumn(name = "idWallet")
     val wallet:Wallet?=null,
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_user")
+    @JoinColumn(name = "idUser")
     val user:User?=null,
 
     @Column(name = "role")
@@ -35,14 +35,3 @@ data class Member(
 
 )
 
-enum class ROLE_MEMBER{
-    ADMIN,
-    MEMBER,
-    OWNER
-}
-
-enum class STATUS_MEMBER{
-    ACTIVE,
-    NONACTIVE,
-    WAITING_CONFIRMATION
-}

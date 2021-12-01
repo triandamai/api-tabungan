@@ -8,18 +8,53 @@ import javax.persistence.*
     name = "tb_wallet"
 )
 data class Wallet(
-    @Id
+    @Id()
+    @Column(
+        name="id_wallet"
+    )
     val id:Long=0,
 
     @OneToMany(
-        mappedBy = "member",
+        mappedBy = "id_member",
         fetch = FetchType.EAGER
     )
     @JsonIgnore
     var members:List<Member> = emptyList(),
 
-    @Column(
-        name = ""
+    @OneToMany(
+        mappedBy = "id_saving",
+        fetch = FetchType.EAGER
     )
-    val name:String=""
+    @JsonIgnore
+    val savings:List<Saving> = emptyList(),
+
+    @Column(
+        name = "title"
+    )
+    val name:String="",
+
+    @Column(
+        name="description"
+    )
+    val description:String="",
+
+    @Column(
+        name="balance"
+    )
+    val balance:Double=0.0,
+
+    @Column(
+        name="created_by"
+    )
+    val createdBy:Long=0,
+
+    @Column(
+        name="created_at"
+    )
+    val createdAt:Long=0,
+
+    @Column(
+        name="updated_at"
+    )
+    val updatedAt:Long=0
 )

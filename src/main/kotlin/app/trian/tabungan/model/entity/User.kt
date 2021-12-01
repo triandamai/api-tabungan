@@ -1,8 +1,7 @@
 package app.trian.tabungan.model.entity
 
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Table
+import com.fasterxml.jackson.annotation.JsonIgnore
+import javax.persistence.*
 
 /**
  * User
@@ -16,5 +15,48 @@ import javax.persistence.Table
 )
 data class User(
     @Id
-    val id_user:Long=0
+    @Column(
+        name = "id_user"
+    )
+    val idUser:Long=0,
+
+    @OneToMany(
+        mappedBy = "id_member",
+        fetch = FetchType.EAGER
+    )
+    @JsonIgnore
+    var members:List<Member> = emptyList(),
+
+    @OneToMany(
+        mappedBy = "id_saving",
+        fetch = FetchType.EAGER
+    )
+    @JsonIgnore
+    val savings:List<Saving> = emptyList(),
+
+    @Column(
+        name = "name"
+    )
+    val name:String="",
+
+    @Column(
+        name="username"
+    )
+    val username:String="",
+
+    @Column(
+        name="password"
+    )
+    val password:String="",
+
+    @Column(
+        name="created_at"
+    )
+    val createdAt:Long=0,
+
+    @Column(
+        name="updated_at"
+    )
+    val updatedAt:Long=0
+
 )

@@ -8,7 +8,10 @@ import javax.persistence.*
 )
 data class Member(
     @Id
-    val id_member:Long=0,
+    @Column(
+        name = "id_member"
+    )
+    val idMember:Long=0,
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_wallet")

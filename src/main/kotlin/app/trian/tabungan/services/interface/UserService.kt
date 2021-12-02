@@ -1,5 +1,6 @@
 package app.trian.tabungan.services.`interface`
 
+import app.trian.tabungan.model.request.UserLoginRequest
 import app.trian.tabungan.model.request.UserRequest
 import app.trian.tabungan.model.response.BaseResponse
 import app.trian.tabungan.model.response.UserResponse
@@ -18,7 +19,7 @@ interface UserService {
 
     fun registerNewUser(userRequest: UserRequest):BaseResponse<UserResponse>
 
-    fun loginUser(username: UserRequest):BaseResponse<UserResponse>
+    fun loginUser(request: UserLoginRequest):BaseResponse<UserResponse>
 
 
 }

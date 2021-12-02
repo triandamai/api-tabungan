@@ -5,6 +5,7 @@ import app.trian.tabungan.model.response.BaseResponse
 import app.trian.tabungan.model.response.MemberResponse
 import app.trian.tabungan.services.`interface`.MemberService
 import org.springframework.data.domain.Pageable
+import org.springframework.stereotype.Service
 
 /**
  * Member Service Impl
@@ -12,6 +13,7 @@ import org.springframework.data.domain.Pageable
  * https://github.com/triandamai
  * Created At 02/12/21 20.08
  */
+@Service
 class MemberServiceImpl:MemberService {
     override fun getWalletByUser(userId: Long, pageable: Pageable): BaseResponse<List<MemberResponse>> {
         TODO("Not yet implemented")

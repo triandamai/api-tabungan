@@ -5,6 +5,7 @@ import app.trian.tabungan.model.response.BaseResponse
 import app.trian.tabungan.model.response.SavingResponse
 import app.trian.tabungan.services.`interface`.SavingService
 import org.springframework.data.domain.Pageable
+import org.springframework.stereotype.Service
 
 /**
  * Saving service impl
@@ -13,6 +14,7 @@ import org.springframework.data.domain.Pageable
  * Created At 02/12/21 20.07
  */
 
+@Service
 class SavingServiceImpl:SavingService {
     override fun getSavingByUser(userId: Long, pageable: Pageable): BaseResponse<List<SavingResponse>> {
         TODO("Not yet implemented")

@@ -1,10 +1,12 @@
 package app.trian.tabungan.services
 
+import app.trian.tabungan.model.request.UserLoginRequest
 import app.trian.tabungan.model.request.UserRequest
 import app.trian.tabungan.model.response.BaseResponse
 import app.trian.tabungan.model.response.UserResponse
 import app.trian.tabungan.services.`interface`.UserService
 import org.springframework.data.domain.Pageable
+import org.springframework.stereotype.Service
 
 /**
  * UserService impl
@@ -12,6 +14,7 @@ import org.springframework.data.domain.Pageable
  * https://github.com/triandamai
  * Created At 02/12/21 20.08
  */
+@Service
 class UserServiceImpl:UserService {
     override fun getListUser(pageable: Pageable): BaseResponse<List<UserResponse>> {
         TODO("Not yet implemented")
@@ -25,7 +28,7 @@ class UserServiceImpl:UserService {
         TODO("Not yet implemented")
     }
 
-    override fun loginUser(username: UserRequest): BaseResponse<UserResponse> {
+    override fun loginUser(request: UserLoginRequest): BaseResponse<UserResponse> {
         TODO("Not yet implemented")
     }
 }

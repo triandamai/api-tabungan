@@ -13,6 +13,13 @@ data class BaseResponse<T>(
     val message:String
 )
 
+data class BaseCollectionPageable<T>(
+    val data:List<T> = listOf(),
+    val totalPage:Int,
+    val totalELement:Int,
+    val page:Int,
+    val size:Int,
+)
 enum class StatusResponse{
     OK,
     FAILED,

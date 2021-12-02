@@ -1,11 +1,15 @@
 package app.trian.tabungan.model.request
 
 import app.trian.tabungan.model.entity.User
+import javax.validation.constraints.NotBlank
 
 data class UserRequest(
-    val name:String,
-    val username:String,
-    val password:String,
+    @field:NotBlank
+    val name:String?,
+    @field:NotBlank
+    val username:String?,
+    @field:NotBlank
+    val password:String?,
 )
 
 fun UserRequest.toUser(
@@ -17,9 +21,9 @@ fun UserRequest.toUser(
 
     return User(
         idUser = idUser,
-        name= name,
-        username=username,
-        password= password.ifBlank { this.password },
+        name= name!!,
+        username=username!!,
+        password= password.ifBlank { this.password!! },
         createdAt=createdAt,
         updatedAt = updatedAt
     )

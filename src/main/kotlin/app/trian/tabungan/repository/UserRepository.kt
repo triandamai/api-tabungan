@@ -11,5 +11,5 @@ import org.springframework.data.repository.PagingAndSortingRepository
  */
 
 interface UserRepository:PagingAndSortingRepository<User,Long> {
-
+    fun findTopByUsername(username: String):User?
 }

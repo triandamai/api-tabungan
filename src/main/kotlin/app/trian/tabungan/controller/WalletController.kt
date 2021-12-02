@@ -34,7 +34,7 @@ class WalletController(
         produces = ["application/json"],
         consumes = ["application/json"]
     )
-    fun createNewWallet(walletRequest: WalletRequest) = 
+    fun createNewWallet(@RequestBody walletRequest: WalletRequest) =
     walletService.createWallet(walletRequest)
 
     @PutMapping(
@@ -43,6 +43,6 @@ class WalletController(
         consumes = ["application/json"]
     )
     fun updateWallet(@PathVariable("id") id:Long,
-                     walletRequest: WalletRequest)=walletService.updateWallet(id,walletRequest)
+                     @RequestBody walletRequest: WalletRequest)=walletService.updateWallet(id,walletRequest)
 }
 

@@ -1,5 +1,7 @@
 package app.trian.tabungan.model.request
 
+import javax.validation.constraints.NotBlank
+
 /**
  * UserLoginRequest
  * Created By Trian Damai
@@ -7,6 +9,8 @@ package app.trian.tabungan.model.request
  * Created At 02/12/21 20.11
  */
 data class UserLoginRequest(
-    val username:String,
-    val password:String
+    @field:NotBlank
+    val username:String?,
+    @field:NotBlank
+    val password:String?
 )

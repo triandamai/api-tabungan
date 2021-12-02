@@ -11,55 +11,55 @@ data class Saving(
     @Column(
         name = "id_saving"
     )
-    val idSaving:Long=0,
+    var idSaving:Long=0,
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idWallet")
-    val wallet:Wallet?=null,
+    var wallet:Wallet?=null,
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idUser")
-    val user:User?=null,
+    var user:User?=null,
 
     @Column(
         name = "balance"
     )
-    val balance:Double=0.0,
+    var balance:Double=0.0,
 
     @Column(
         name = "description"
     )
-    val description:String ="",
+    var description:String ="",
 
     @Column(
         name = "note"
     )
-    val note:String="",
+    var note:String="",
 
     @Column(
         name = "receipt"
     )
-    val receipt:String="",
+    var receipt:String="",
 
     @Column(
         name = "granted_by"
     )
-    val grantedBy:String="",
+    var grantedBy:String="",
 
     @Column(
         name = "granted"
     )
-    val granted:Boolean=false,
+    var granted:Boolean=false,
 
     @Column(
         name = "created_at"
     )
-    val createdAt:Long=0,
+    var createdAt:Long=0,
 
     @Column(
         name = "updated_at"
     )
-    val updatedAt:Long=0
+    var updatedAt:Long=0
 
 
 )

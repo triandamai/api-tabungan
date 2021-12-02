@@ -5,26 +5,27 @@ import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
 
 data class MemberRequest(
-    @field:NotBlank
-    var role:ROLE_MEMBER?,
     @field:NotNull
     var id_user:Long?,
-    @field:NotBlank
-    var status:STATUS_MEMBER?
+    @field:NotNull
+    var id_wallet:Long?,
 )
 
 fun MemberRequest.toMember(
+    idMember:Long,
     wallet: Wallet,
     user: User,
+    statusMember: STATUS_MEMBER,
+    role :ROLE_MEMBER,
     createdAt:Long,
     updatedAt:Long
 ):Member{
     return Member(
-        idMember = 0,
+        idMember = idMember,
         user = user,
         wallet=wallet,
-        role = role!!,
-        statusMembership = status!!,
+        role = role,
+        statusMembership = statusMember,
         createdAt = createdAt,
         updatedAt = updatedAt,
     )

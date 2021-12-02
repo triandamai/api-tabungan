@@ -14,7 +14,7 @@ data class Wallet(
     @Column(
         name="id_wallet"
     )
-    val idWallet:Long=0,
+    var idWallet:Long=0,
 
     @OneToMany(
         mappedBy = "idMember",
@@ -36,35 +36,35 @@ data class Wallet(
         value = FetchMode.SUBSELECT
     )
     @JsonIgnore
-    val savings:List<Saving> = emptyList(),
+    var savings:List<Saving> = emptyList(),
 
     @Column(
         name = "title"
     )
-    val name:String="",
+    var name:String="",
 
     @Column(
         name="description"
     )
-    val description:String="",
+    var description:String="",
 
     @Column(
         name="balance"
     )
-    val balance:Double=0.0,
+    var balance:Double=0.0,
 
     @Column(
         name="created_by"
     )
-    val createdBy:Long=0,
+    var createdBy:Long=0,
 
     @Column(
         name="created_at"
     )
-    val createdAt:Long=0,
+    var createdAt:Long=0,
 
     @Column(
         name="updated_at"
     )
-    val updatedAt:Long=0
+    var updatedAt:Long=0
 )

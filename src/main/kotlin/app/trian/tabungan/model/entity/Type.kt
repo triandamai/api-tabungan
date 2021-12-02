@@ -9,5 +9,6 @@ enum class ROLE_MEMBER{
 enum class STATUS_MEMBER{
     ACTIVE,
     NONACTIVE,
+    LEAVE,
     WAITING_CONFIRMATION
 }

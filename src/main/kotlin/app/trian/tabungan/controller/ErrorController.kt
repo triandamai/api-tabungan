@@ -1,11 +1,9 @@
 package app.trian.tabungan.controller
 
-import app.trian.tabungan.model.response.BaseResponse
-import app.trian.tabungan.model.response.HTTP_ERROR
-import app.trian.tabungan.model.response.HTTP_FAILED
-import app.trian.tabungan.model.response.StatusResponse
+import app.trian.tabungan.model.response.*
 import app.trian.tabungan.utils.AuthenticationException
 import app.trian.tabungan.utils.DataExistUniqueException
+import app.trian.tabungan.utils.DataNotFoundException
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import javax.validation.ConstraintViolationException
@@ -65,6 +63,18 @@ class ErrorController {
     fun authFailed(error:AuthenticationException):BaseResponse<Any> = BaseResponse(
         status = StatusResponse.UNAUTHORIZED,
         code = HTTP_FAILED,
+        message = error.message ?: "",
+        data =""
+    )
+
+    @ExceptionHandler(
+        value = [
+            DataNotFoundException::class
+        ]
+    )
+    fun authFailed(error:DataNotFoundException):BaseResponse<Any> = BaseResponse(
+        status = StatusResponse.NOT_FOUND,
+        code = HTTP_NOTFOUND,
         message = error.message ?: "",
         data =""
     )

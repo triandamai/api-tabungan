@@ -30,12 +30,12 @@ class WalletController(
     walletService.getDetailWallet(id)
 
     @PostMapping(
-        value = ["api/v1/wallet"],
+        value = ["api/v1/wallet/{id}"],
         produces = ["application/json"],
         consumes = ["application/json"]
     )
-    fun createNewWallet(@RequestBody walletRequest: WalletRequest) =
-    walletService.createWallet(walletRequest)
+    fun createNewWallet(@PathVariable("id") idUser:Long, @RequestBody walletRequest: WalletRequest) =
+    walletService.createWallet(idUser,walletRequest)
 
     @PutMapping(
         value = ["api/v1/wallet/{id}"],

@@ -10,11 +10,11 @@ import javax.persistence.*
     name = "tb_wallet"
 )
 data class Wallet(
-    @Id()
+    @Id
     @Column(
         name="id_wallet"
     )
-    val id:Long=0,
+    val idWallet:Long=0,
 
     @OneToMany(
         mappedBy = "idMember",

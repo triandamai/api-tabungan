@@ -20,7 +20,7 @@ data class User(
     @Column(
         name = "id_user"
     )
-    val idUser:Long=0,
+    var idUser:Long=0,
 
     @OneToMany(
         mappedBy = "idMember",
@@ -42,31 +42,31 @@ data class User(
         value = FetchMode.SUBSELECT
     )
     @JsonIgnore
-    val savings:List<Saving> = emptyList(),
+    var savings:List<Saving> = emptyList(),
 
     @Column(
         name = "name"
     )
-    val name:String="",
+    var name:String="",
 
     @Column(
         name="username"
     )
-    val username:String="",
+    var username:String="",
 
     @Column(
         name="password"
     )
-    val password:String="",
+    var password:String="",
 
     @Column(
         name="created_at"
     )
-    val createdAt:Long=0,
+    var createdAt:Long=0,
 
     @Column(
         name="updated_at"
     )
-    val updatedAt:Long=0
+    var updatedAt:Long=0
 
 )

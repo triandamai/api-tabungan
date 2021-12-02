@@ -27,7 +27,7 @@ class AuthController(
         value = ["api/v1/users"],
         produces = ["application/json"]
     )
-    fun getListUser(pageable: Pageable):BaseResponse<BaseCollectionPageable<UserResponse>> = userService.getListUser(pageable)
+    fun getListUser(pageable: Pageable) = userService.getListUser(pageable)
 
     @PostMapping(
         name = "login",
@@ -35,7 +35,7 @@ class AuthController(
             "api/v1/login"
         ]
     )
-    fun login(@RequestBody userLoginRequest: UserLoginRequest):BaseResponse<UserResponse> = userService.loginUser(userLoginRequest)
+    fun login(@RequestBody userLoginRequest: UserLoginRequest) = userService.loginUser(userLoginRequest)
 
     @PostMapping(
         name = "register",
@@ -45,5 +45,5 @@ class AuthController(
         consumes = ["application/json"],
         produces = ["application/json"]
     )
-    fun register(@RequestBody userRequest: UserRequest):BaseResponse<UserResponse> = userService.registerNewUser(userRequest)
+    fun register(@RequestBody userRequest: UserRequest) = userService.registerNewUser(userRequest)
 }

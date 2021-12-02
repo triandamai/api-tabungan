@@ -30,18 +30,14 @@ class AuthController(
     fun getListUser(pageable: Pageable) = userService.getListUser(pageable)
 
     @PostMapping(
-        name = "login",
-        value=[
-            "api/v1/login"
-        ]
+        value=["api/v1/login"],
+        consumes = ["application/json"],
+        produces = ["application/json"]
     )
     fun login(@RequestBody userLoginRequest: UserLoginRequest) = userService.loginUser(userLoginRequest)
 
     @PostMapping(
-        name = "register",
-        value = [
-            "api/v1/register"
-        ],
+        value = ["api/v1/register"],
         consumes = ["application/json"],
         produces = ["application/json"]
     )

@@ -20,14 +20,14 @@ class WalletController(
         produces = ["application/json"]
     )
     fun getWallets(pageable: Pageable) =
-    walletService.getWallet(pageable)
+        walletService.getWallet(pageable)
 
     @GetMapping(
         value = ["api/v1/wallet/{id}"],
         produces = ["application/json"]
     )
     fun getWallet(@PathVariable("id") id:Long)=
-    walletService.getDetailWallet(id)
+        walletService.getDetailWallet(id)
 
     @PostMapping(
         value = ["api/v1/wallet/{id}"],
@@ -35,14 +35,14 @@ class WalletController(
         consumes = ["application/json"]
     )
     fun createNewWallet(@PathVariable("id") idUser:Long, @RequestBody walletRequest: WalletRequest) =
-    walletService.createWallet(idUser,walletRequest)
+        walletService.createWallet(idUser,walletRequest)
 
     @PutMapping(
         value = ["api/v1/wallet/{id}"],
         produces = ["application/json"],
         consumes = ["application/json"]
     )
-    fun updateWallet(@PathVariable("id") id:Long,
-                     @RequestBody walletRequest: WalletRequest)=walletService.updateWallet(id,walletRequest)
+    fun updateWallet(@PathVariable("id") id:Long, @RequestBody walletRequest: WalletRequest)=
+        walletService.updateWallet(id,walletRequest)
 }
 

@@ -36,28 +36,32 @@ class MemberController(
         consumes = ["application/json", ],
         produces = ["application/json"]
     )
-    fun leaveMember(@RequestBody request: MemberRequest)= memberService.leaveMembership(request)
+    fun leaveMember(@RequestBody request: MemberRequest)=
+        memberService.leaveMembership(request)
 
     @PostMapping(
         value = ["api/v1/member/disable"],
         consumes = ["application/json"],
         produces = ["application/json"]
     )
-    fun disableMember(@RequestBody request: MemberRequest)= memberService.disableMember(request)
+    fun disableMember(@RequestBody request: MemberRequest)=
+        memberService.disableMember(request)
 
     @PostMapping(
         value = ["api/v1/member/makeowner"],
         consumes = ["application/json"],
         produces = ["application/json"]
     )
-    fun makeMemberOwner(@RequestBody request: MemberRequest)= memberService.makeMemberOwner(request)
+    fun makeMemberOwner(@RequestBody request: MemberRequest)=
+        memberService.makeMemberOwner(request)
 
     @PostMapping(
         value = ["api/v1/member/makeadmin"],
         consumes = ["application/json"],
         produces = ["application/json"]
     )
-    fun makeMemberAdmin(@RequestBody request: MemberRequest)= memberService.makeMemberAdmin(request)
+    fun makeMemberAdmin(@RequestBody request: MemberRequest)=
+        memberService.makeMemberAdmin(request)
 
 
     @PostMapping(
@@ -65,7 +69,8 @@ class MemberController(
         consumes = ["application/json"],
         produces = ["application/json"]
     )
-    fun makeMemberAMember(@RequestBody request: MemberRequest)= memberService.makeMemberMember(request)
+    fun makeMemberAMember(@RequestBody request: MemberRequest)=
+        memberService.makeMemberMember(request)
 
 
 }

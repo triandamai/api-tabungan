@@ -78,4 +78,16 @@ class ErrorController {
         message = error.message ?: "",
         data =""
     )
+
+    @ExceptionHandler(
+        value = [
+            AccessDeniedException::class
+        ]
+    )
+    fun cannotPerformAction(error:AccessDeniedException):BaseResponse<Any> = BaseResponse(
+        status = StatusResponse.NOT_FOUND,
+        code = HTTP_NOTFOUND,
+        message = error.message ?: "",
+        data =""
+    )
 }

@@ -46,7 +46,7 @@ private val validationUtil: ValidationUtil
     override fun getDetailWallet(idWallet: Long): BaseResponse<WalletResponse> {
         val wallet = walletRepository.findById(idWallet)
         if(wallet.isEmpty){
-            throw DataNotFoundException("No data found for wallet with ${idWallet}")
+            throw DataNotFoundException("No data found for wallet with $idWallet")
         }
 
         return BaseResponse(
@@ -80,7 +80,7 @@ private val validationUtil: ValidationUtil
         validationUtil.validate(request)
 
         val findWallet = walletRepository.findByIdOrNull(idWallet)
-            ?: throw DataNotFoundException("Cannot edit wallet because ${idWallet} not match any wallet")
+            ?: throw DataNotFoundException("Cannot edit wallet because $idWallet not match any wallet")
         val newDate = DateTime().millis
         val prepareData = request.toWallet(
             idWallet=findWallet.idWallet,

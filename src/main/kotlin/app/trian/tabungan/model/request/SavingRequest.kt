@@ -16,7 +16,9 @@ data class SavingRequest(
     @field:NotBlank
     var name:String?,
     @field:NotNull
-    var is_user:Long?,
+    var id_user:Long?,
+    @field:NotNull
+    var id_wallet:Long?,
     @field:NotNull
     var balance:Double?,
     @field:NotBlank
@@ -25,6 +27,17 @@ data class SavingRequest(
     var note:String?,
     @field:NotBlank
     var receipt:String?,
+)
+
+data class SavingActionRequest(
+    @field:NotBlank
+    var name:String?,
+    @field:NotNull
+    var id_user:Long?,
+    @field:NotNull
+    var id_wallet:Long?,
+    @field:NotBlank
+    var note:String?
 )
 
 fun SavingRequest.toSaving(

@@ -4,6 +4,7 @@ import app.trian.tabungan.model.response.*
 import app.trian.tabungan.utils.AuthenticationException
 import app.trian.tabungan.utils.DataExistUniqueException
 import app.trian.tabungan.utils.DataNotFoundException
+import app.trian.tabungan.utils.FileServiceException
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import javax.validation.ConstraintViolationException
@@ -89,5 +90,17 @@ class ErrorController {
         code = HTTP_NOTFOUND,
         message = error.message ?: "",
         data =""
+    )
+
+    @ExceptionHandler(
+        value = [
+            FileServiceException::class
+        ]
+    )
+    fun fileService(error:FileServiceException):BaseResponse<Any> = BaseResponse(
+        status = StatusResponse.FAILED,
+        code = HTTP_ERROR,
+        message = error.message ?: "",
+        data = ""
     )
 }
